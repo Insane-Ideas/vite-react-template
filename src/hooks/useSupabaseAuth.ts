@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import supabase from "../supabaseClient";
+import supabase from "@/lib/supabase/client";
 import type { Session } from "@supabase/supabase-js";
 
 export default function useSupabaseAuth() {
@@ -32,6 +32,7 @@ export default function useSupabaseAuth() {
 
       const { data } = await supabase.auth.getSession();
       setSession(data.session);
+      setAuthLoading(false);
 
       // Keep the UI in sync with login/logout.
       const { data: listener } = supabase.auth.onAuthStateChange(
