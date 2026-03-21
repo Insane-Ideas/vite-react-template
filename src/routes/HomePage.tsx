@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { fetchLatestTestRunId } from '@/lib/supabase/queries'
+import { fetchLatestTestRunIdForProject } from '@/lib/supabase/queries'
+import { useProject } from '@/contexts/ProjectContext'
 
 export default function HomePage() {
   const navigate = useNavigate()
+  const { selectedProjectId } = useProject()
   const [message, setMessage] = useState('Looking for the latest run…')
 
   useEffect(() => {
     let cancelled = false
     async function run() {
-      const { id, error } = await fetchLatestTestRunId()
+      if (!selectedProjectId) {
+        setMessage('No project selected.')
+        return
+      }
+      const { id, error } = await fetchLatestTestRunIdForProject(selectedProjectId)
       if (cancelled) return
       if (error) {
         setMessage(`Could not load runs: ${error.message}`)
@@ -25,11 +31,11 @@ export default function HomePage() {
     return () => {
       cancelled = true
     }
-  }, [navigate])
+  }, [navigate, selectedProjectId])
 
   return (
     <div className="flex h-full min-h-[50vh] items-center justify-center px-6 py-12">
-      <p className="max-w-md text-center text-sm text-[var(--color-report-muted)]">
+      <p className="max-w-md text-center text-sm text-report-muted">
         {message}
       </p>
     </div>

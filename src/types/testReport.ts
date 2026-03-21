@@ -1,10 +1,36 @@
 export type RunStatus = string
 
+export type ProjectRole = 'viewer' | 'editor' | 'admin'
+export type AccessRequestStatus = 'pending' | 'approved' | 'rejected'
+
+export type ProjectSummary = {
+  id: string
+  slug: string
+  name: string
+  role: ProjectRole
+}
+
+export type ProjectAccessRequest = {
+  id: string
+  project_id: string
+  user_id: string
+  reason: string | null
+  status: AccessRequestStatus
+  created_at: string
+  reviewed_at: string | null
+  reviewed_by: string | null
+  requester_email?: string | null
+  requester_name?: string | null
+}
+
 /** Row from public.test_runs (sidebar list fields). */
 export type TestRunListRow = {
   id: string
   run_key: string | null
   project: string | null
+  project_id: string | null
+  project_slug: string | null
+  project_name: string | null
   status: RunStatus | null
   total: number | null
   passed: number | null

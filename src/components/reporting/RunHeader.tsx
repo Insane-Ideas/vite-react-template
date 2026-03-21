@@ -47,10 +47,12 @@ export function RunHeader({ run }: RunHeaderProps) {
             )}
           </p>
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[var(--color-report-muted)]">
-            {run.project && (
+            {(run.project_name || run.project || run.project_slug) && (
               <span>
                 Project:{' '}
-                <span className="text-slate-300">{run.project}</span>
+                <span className="text-slate-300">
+                  {run.project_name ?? run.project ?? run.project_slug}
+                </span>
               </span>
             )}
             {run.branch && (
