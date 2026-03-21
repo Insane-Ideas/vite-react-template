@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="32" height="32" role="img" aria-label="Idea lightbulb">
+  <defs>
+    <linearGradient id="g" x1="20" y1="40" x2="236" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#41D1FF"/>
+      <stop offset="55%" stop-color="#BD34FE"/>
+      <stop offset="100%" stop-color="#FFA800"/>
+    </linearGradient>
+    <linearGradient id="y" x1="78" y1="120" x2="178" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFEA83"/>
+      <stop offset="100%" stop-color="#FFA800"/>
+    </linearGradient>
+  </defs>
+
+  <!-- soft backdrop -->
+  <rect x="18" y="18" width="220" height="220" rx="28" fill="url(#g)" opacity="0.12"/>
+
+  <!-- spark rays -->
+  <g stroke="url(#g)" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.95">
+    <path d="M128 20 C128 35 128 45 128 56"/>
+    <path d="M70 46 C79 57 87 67 96 78"/>
+    <path d="M186 46 C177 57 169 67 160 78"/>
+    <path d="M46 98 C58 106 69 113 81 121"/>
+    <path d="M210 98 C198 106 187 113 175 121"/>
+  </g>
+  <circle cx="128" cy="20" r="9" fill="url(#g)"/>
+
+  <!-- bulb -->
+  <path
+    d="M128 46
+       c-44 0-80 33-80 78
+       c0 28 15 52 36 66
+       c8 5 12 14 12 23
+       v6
+       c0 0 0 0 0 0
+       h64
+       v-6
+       c0-9 4-18 12-23
+       c21-14 36-38 36-66
+       c0-45-36-78-80-78Z"
+    fill="none"
+    stroke="url(#g)"
+    stroke-width="10"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+
+  <!-- filament -->
+  <path
+    d="M102 138
+       c10 10 19 14 26 15
+       c7 1 15-1 26-15"
+    fill="none"
+    stroke="url(#y)"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+  <path
+    d="M116 153 L112 168"
+    stroke="url(#y)"
+    stroke-width="8"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <path
+    d="M140 153 L144 168"
+    stroke="url(#y)"
+    stroke-width="8"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- base -->
+  <path
+    d="M104 176
+       h48
+       c6 0 10 4 10 10
+       v14
+       c0 12-10 22-22 22
+       h-24
+       c-12 0-22-10-22-22
+       v-14
+       c0-6 4-10 10-10Z"
+    fill="none"
+    stroke="url(#g)"
+    stroke-width="10"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+  <path d="M94 214 C112 216 144 216 162 214" stroke="url(#g)" stroke-width="10" stroke-linecap="round" fill="none"/>
+</svg>
